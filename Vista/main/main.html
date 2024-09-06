@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+    <html lang="en">
+        <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width:width-device, initial-scale=1.0">
+        <link rel="stylesheet" href="styles_main.css">
+        </head>
+        <body>
+            <main>
+                <div id="cabecera">
+                <header id="header">
+                <div id="logo">
+                   <img src="https://www.ucundinamarca.edu.co/images/BotonRadioHome/logo-2024.png" rel="Escudo-Universidad"> 
+                </div>
+                
+
+                    <nav id="navBar">
+                        <ul>
+                            <li>
+                                <a class="navLink" href=""><span class="texto" id="enviarDocumento">Enviar Documento</span></a>
+                            </li>
+                            <li>
+                                <a class="navLink" href=""><span class="texto">Consultar Formatos</span></a>
+                            </li>
+                            <li>
+                                <a class="navLink" href=""><span class="texto">Consultar Nota</span></a>
+                            </li>
+                        </ul>
+                    </nav>
+                </header>
+                </div>
+                <form id="formularioEnvio">
+                    <div id="contenedor">
+                        <label class ="text-form" for="nombreProyecto">Nombre del Proyecto</label>
+                        <input type="text" id="nombreProyecto" class="inputs" required/>
+                        <label for="email1" class ="text-form">Correo de los Integrantes</label>
+                        <input type="email" id="email1" placeholder="Email Integrante Uno" class="inputs" required/>
+                        <label for="email2" class ="text-form"></label>
+                        <input type="email" id="email2" placeholder="Email Integrante Dos" class="inputs" required/>
+                       <label for="ciclos" class ="text-form">Ingrese el ciclo</label>
+                        <select id="ciclos" class="inputs">
+                            <option disabled value="ciclo0">Seleccione una opcion</option>
+                            <option value="ciclo1">Ciclo 1</option>
+                            <option value="ciclo2">Ciclo 2</option>
+                            <option value="ciclo3">Ciclo 3</option>
+                        </select>
+                        <label for="archivoPDF" class ="text-form">Seleccione el archivo en formato PDF</label>
+                        <input type="file" id="archivoPDF" class="inputs" required/>
+                        <button type="submit" id="botonEnviar">Enviar</button>
+                    </div>
+                 
+                </form>
+            </main>
+        </body>
+            
+    </html>
