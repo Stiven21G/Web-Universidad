@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
+
+body {
+    font-family: "Roboto Condensed", sans-serif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f7f7f7;
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("https://www.ucundinamarca.edu.co/images/2021/11/04/ubate-1.jpg");
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.8;
+    z-index: -1;
+}
+
+form {
+    width: 450px;
+    height: 480px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0px 1px 7px #6ddf97;
+    padding: 20px;
+}
+
+#elementos {
+    width: 80%;
+    height: auto;
+    text-align: center;
+    margin: auto;
+    padding-top: 40px;
+}
+
+#logo > img {
+    max-width: 70%;
+    max-height: 200px;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 24px;
+    font-weight: bold;
+    color:rgb(82, 79, 79);
+    margin-bottom: 20px;
+}
+
+#btn1{
+    position: relative;
+    background-color: rgb(255, 255, 255);
+    color: rgba(5, 80, 16);
+    border:1px solid rgba(5, 80, 16); 
+    width: 200px;
+    height:50px;
+    padding:15px;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+#btn1:hover {
+    background-color:rgb(30, 97, 40);
+    color: rgb(255,255,255); 
+    box-shadow: 3px 3px  rgb(0, 67, 10);
+    outline: none;
+    border: none;
+}
+
+#btn2{
+    position: relative;
+    background-color: rgb(5, 80, 16);
+    color: rgba(214, 214, 214, 0.881);
+    border:none;
+    outline: none;
+    width: 200px;
+    height:50px;
+    padding:15px;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+#btn2:hover {
+    background-color:rgb(255, 255, 255);
+    color: #ffffff; 
+    color: rgba(5, 80, 16);
+    border:1px solid rgba(5, 80, 16); 
+    box-shadow: 3px 3px  rgb(5, 80, 16);
+}

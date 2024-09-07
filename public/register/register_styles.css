@@ -76,18 +76,19 @@ label{
     box-shadow: 2px 2px rgba(6, 78, 30);
     opacity: 0.9;
 }
-#pagina-inicio{
+
+#pagina-inicio:link{
     position: absolute;
-    right:550px;
-    top:570px;
-}
-#pagina-inicio{
-    color:rgb(57, 1, 57); 
-    border-bottom: 2px solid rgb(57, 1, 57); 
+    left:550px;
+    top:545px; 
+    color:#564bf2;
 }
 
-#pagina-inicio{
-    border-bottom: 2px solid rgb(82, 25, 25); 
-    color:rgb(82, 25, 25);
-}
+#pagina-inicio:hover{
+    color:rgb(15, 80, 27); 
+    border-bottom: 2px solid rgb(57, 1, 57); 
+} 
+
+
+
 
