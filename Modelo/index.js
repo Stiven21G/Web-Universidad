@@ -4,11 +4,11 @@ import path from 'path'
 import { fileURLToPath } from "url"
 
 //IMPORTAR BASE DE DATOS
-import { connection } from "./db.js"
+import {connectToDb, getDb} from './db.js'
 
 //IMPORTAR RUTAS
-import rutas from './Routes/routes.js';
 import cors from 'cors'
+
 //RUTA DEL PUERTO
 const PORT = process.env.PORT ??4000
 const app = express()
@@ -20,8 +20,6 @@ app.use(express.static(path.join(__dirname,'..','public')))
 //
 
 //MIDDLEWARES
-app.use(rutas)
-
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname,'..', 'public', 'index.html'));
 });

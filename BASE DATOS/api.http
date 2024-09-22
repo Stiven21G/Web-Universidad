@@ -1,0 +1,12 @@
+Get http://localhost:3000/books
+####
+POST http://localhost:3000/books
+Content-Type: application/json
+{
+  "title": "The Final Empire",
+  "author": "Brandon Sanderson",
+  "rating":9,
+  "pages":420,
+  "genres":["fantasy",
+  "magic"]
+}

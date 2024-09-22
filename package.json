@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "main": "index.js",
   "type": "module",
+    "rules": {
+      "semi": ["error", "always"]
+    },
+  
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -13,9 +17,10 @@
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.19.2",
-    "mysql2": "^3.11.0"
+    "mongodb": "^6.9.0"
   },
   "devDependencies": {
-    "@types/express": "^4.17.21"
+    "@types/express": "^4.17.21",
+    "eslint": "^9.11.0"
   }
 }

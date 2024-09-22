@@ -1,14 +1,21 @@
-//EL PROMISE ES PARA ASYNC-AWAIT
-import { createPool } from "mysql2/promise";
+import { MongoClient } from 'mongodb'
 
-// CONEXION A LA BASE DE DATOS, PREFERIBLEMENTE CON POOL
-//SE PUEDE EXPORTAR DIRECTAMENTE, PERO ABAJO MEJOR ;)
-export const connection = createPool({
-    host: 'localhost',
-    user: 'root',
-    password: '12345',
-    port: 3306,
-    database: 'proyectos'
-})
+let dbConnection
+
+//EXPORTAR
+export const connectToDb= (callBack) => {
+        MongoClient.connect('mongodb://localhost:27017/pagina_universidad')
+        .then((client)=>{
+            dbConnection = client.db();
+            return callBack();
+        })
+        .catch(err =>{
+            console.log(err)
+            return callBack(err)
+        })
+    }
+
+export const getDb = () => dbConnection;
+
+    
  
-// export default conection();
