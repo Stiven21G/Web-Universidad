@@ -5,6 +5,7 @@ const password = document.getElementById('pass')
 const boton = document.getElementById('boton-registro')
 
 const sendData = async () => {
+    // Recibir Datos
     const names = nombre.value
     const lastName = apellido.value
     const email = correo.value
@@ -16,7 +17,7 @@ const sendData = async () => {
     }
     try {
         // Enviar a la ubicacion
-        const response = await fetch('/register', {
+        const response = await fetch('/register/register.html', {
             // METODO
             method: 'POST',
             //CABECERA
