@@ -16,7 +16,7 @@ const sendData = async () => {
         return;
     }  
     try{
-        const response = await fetch('/register/register.html',{
+        const response = await fetch('/register/',{
             method: 'POST',
             headers:{
                 'Content-Type': 'application/json'

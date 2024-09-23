@@ -11,31 +11,32 @@ const consultar = async () => {
         window.alert('Los campos no pueden estar vacíos');
         return;
     }
-
-    try {
-        const res = await fetch('/login/login.html', {  // Cambia la ruta a donde estás manejando el login en tu backend
-            method: 'POST',  // Cambiado a POST para enviar datos
-            headers: {
-                'Content-Type': 'application/json',
+    try{
+        const response = await fetch('/login',{
+            method: 'POST',
+            headers:{
+                'Content-Type':'application/json'
             },
-            body: JSON.stringify({
-                email: email,
-                password: password  // Corregido el nombre de la propiedad 'password'
-            })
+            body: JSON.stringify({email, password})
         });
+        
 
-        const data = await res.json();  // Esperar la promesa de res.json()
+        const resultado = await response.text();
 
-        // Comprobación de éxito en la autenticación
-        if (data.success) {
-            window.alert("Éxito");
-        } else {
-            window.alert("Falló");
-        }
+        
+            if (response.ok) {
+                    // Redirigir al usuario a la página principal
+                    window.location.href = '/main/main.html';  // Asegúrate de que la ruta sea correcta
+                } else if(!response.ok){
+                    //ACA DEBE IR CONTRASEÑA INCORRECTA DENTRO DEL HTML
+                } 
+        console.log('Server response:' + resultado);
 
-    } catch (err) {
-        console.log(err);
+
+    } catch(err){
+        window.alert(err)
     }
+    
 };
 
 boton.addEventListener('click', function (event) {
