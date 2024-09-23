@@ -36,7 +36,7 @@ app.get('/', (req, res) => {
 
 // RUTA DE REGISTRO DE USUARIOS
 app.post('/register/register.html', async (req, res) => {
-    const { email, password } = req.body;
+    const { names,lastName, email, password } = req.body;
 
     if (!email || !password) {
         return res.status(400).json({ error: 'Email y contraseña son requeridos' });
@@ -46,7 +46,7 @@ app.post('/register/register.html', async (req, res) => {
         // Hashear la contraseña antes de guardarla
         const hashedPassword = await bcrypt.hash(password, 10);
 
-        const result = await db.collection('estudiantes').insertOne({ email, password: hashedPassword });
+        const result = await db.collection('estudiantes').insertOne({ names,lastName,email, password: hashedPassword });
         res.status(201).json(result);
     } catch (err) {
         console.error(err);

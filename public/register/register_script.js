@@ -1,44 +1,40 @@
-const nombre = document.getElementById('name')
-const apellido = document.getElementById('last-name')
-const correo = document.getElementById('email')
-const password = document.getElementById('pass')
-const boton = document.getElementById('boton-registro')
+const nombre = document.getElementById('name');
+const apellido = document.getElementById('last-name');
+const correo = document.getElementById('email');
+const pass = document.getElementById('pass');
+const boton = document.getElementById('boton-registro');
 
 const sendData = async () => {
     // Recibir Datos
-    const names = nombre.value
-    const lastName = apellido.value
-    const email = correo.value
-    const pass = password.value
+    const names = nombre.value;
+    const lastName = apellido.value;
+    const email = correo.value;
+    const password = pass.value;
 
     if (names === '' || lastName === '' || email === '' || password === '') {
-        window.alert('Los campos no pueden estar vacios')
-        return
-    }
-    try {
-        // Enviar a la ubicacion
-        const response = await fetch('/register/register.html', {
-            // METODO
+        window.alert('Los campos no pueden estar vacios');
+        return;
+    }  
+    try{
+        const response = await fetch('/register/register.html',{
             method: 'POST',
-            //CABECERA
-            headers: {
-                'Content-Type': 'application/json',
+            headers:{
+                'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ names, lastName, email, pass }),
-
+            body: JSON.stringify({
+                names, lastName, email, password
+            })
         });
-        if (!response.ok) {
-            throw new Error('Error en la respuesta del servidor');
-        }
+        if(!response.ok) throw new Error('Fallo interno en el servidor');
+        
+        const resultado = await response.text();
+        console.log('Server response:' + resultado);
+        window.alert('Datos enviados con exito');
 
-        const result = await response.text(); // O .json() si el servidor responde con JSON
-        console.log('Server response:', result);
-        window.alert('Datos enviados con éxito');
-    } catch (error) {
-        console.log(error)
+    } catch(err){
+        window.alert(err)
     }
 }
-
 
 boton.addEventListener('click', function (event) {
     event.preventDefault();
