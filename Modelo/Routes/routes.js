@@ -1,10 +1,12 @@
 //ROUTER SIRVE PARA CREAR RUTAS Y AGRUPARLAS
 import { Router } from "express";
 import bcrypt from 'bcrypt'; 
-import { connectToDb, getDb } from '../db.js';  // Asegúrate de que bcrypt esté instalado
+import { connectToDb, getDb } from '../db.js';  // bcrypt Hashea las contraseñas
+import multer from 'multer';
+
+
 const router = Router()
 let db;
-
 
 connectToDb((err) => {
    if (!err) { 
@@ -13,6 +15,7 @@ connectToDb((err) => {
       window.alert("Fallo en la base de datos")
    }
 });
+
 //METODOS DEL BACKEND
 router.post('/register', async (req, res) => {
    const { names,lastName, email, password } = req.body;
@@ -76,6 +79,37 @@ router.get('/estudiantes', (req, res) => {
 });
 
 
- 
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, 'C:/Users/Asus/Documents/MONGO PDF'); // Directory to save files
+    },
+    filename: function (req, file, cb) {
+        cb(null, Date.now() + '-' + file.originalname); // Unique filename
+    }
+});
+
+const upload = multer({ storage: storage });
+
+router.post('/main', upload.single('archivo'), async (req, res) => {
+    const { nombreProyecto, email1, email2, ciclos } = req.body;
+    const archivoPDF = req.file; // The uploaded file
+
+    try {
+        const datos = await db.collection('documentos_entregados').insertOne({
+            nombreProyecto,
+            email1,
+            email2,
+            ciclos,
+            archivo: archivoPDF.filename // Save the file path or name in the database
+        });
+
+        res.status(201).json({ success: "Elementos y archivo enviados con éxito" });
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ success: false, message: 'Error del servidor' });
+    }
+});
+
+
 
 export default router;

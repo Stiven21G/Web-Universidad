@@ -32,7 +32,7 @@ const sendData = async () => {
         window.alert('Datos enviados con exito');
 
     } catch(err){
-        window.alert(err)
+        window.alert(err);
     }
 }
 
