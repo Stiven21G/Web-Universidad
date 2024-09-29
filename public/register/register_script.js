@@ -25,11 +25,15 @@ const sendData = async () => {
                 names, lastName, email, password
             })
         });
-        if(!response.ok) throw new Error('Fallo interno en el servidor');
-        
-        const resultado = await response.text();
-        console.log('Server response:' + resultado);
-        window.alert('Datos enviados con exito');
+      
+    const data = await response.json();
+    if (!response.ok) {
+        console.error('Error:', data);
+        alert(`Error: ${data.message}\nDetalles: ${JSON.stringify(data.errors)}`);
+    } else {
+        console.log('Success:', data);
+        alert('Registro exitoso');
+    }
 
     } catch(err){
         window.alert(err);
