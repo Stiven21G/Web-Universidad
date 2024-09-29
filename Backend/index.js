@@ -1,7 +1,7 @@
 import express from 'express';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import { connectToDb, getDb } from './db.js'; // Importar conexión a la base de datos
+import { connectToDb, getDb } from './database/db.js'; // Importar conexión a la base de datos
 import router from './Routes/routes.js';
 
 // Inicializar variables
